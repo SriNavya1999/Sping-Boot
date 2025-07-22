@@ -25,6 +25,7 @@ public class StoreApplication {
 
 		// And Bean should have only 1 constructor.
 		// If it is having multiple constructors without default one, it should mark the main constructor as @Autowired. Else it will throw an error.
+		// If it is having multiple constructors and a default one, even if none of them are marked with @Autowired, it will pick the default one
 		var orderService = context.getBean(OrderService.class);
 
 		orderService.placeOrder();
