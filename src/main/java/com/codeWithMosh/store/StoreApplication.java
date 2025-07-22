@@ -21,6 +21,10 @@ public class StoreApplication {
  		 */
 
 		// Let's mark OrderService and PayPalPaymentService class as @Service. This will resolve the Beans
+		// Not that we have not marked StripePaymentService as @Service. This will be throwing an error. We will resolve it later.
+
+		// And Bean should have only 1 constructor.
+		// If it is having multiple constructors without default one, it should mark the main constructor as @Autowired. Else it will throw an error.
 		var orderService = context.getBean(OrderService.class);
 
 		orderService.placeOrder();

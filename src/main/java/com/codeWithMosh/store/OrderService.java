@@ -8,6 +8,8 @@ public class OrderService {
 
     private PaymentService paymentService;
 
+    OrderService(PaymentService paymentService, Integer integer){}
+
     OrderService(PaymentService paymentService){
         this.paymentService = paymentService;
     }
