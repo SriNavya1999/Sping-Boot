@@ -20,8 +20,7 @@ public class StoreApplication {
 		 * 4. @Controller --> Tells that the class is a Controller class, Handles the Web requests.
  		 */
 
-		// Let's mark OrderService class as @Service.
-		// It still fails as it will not be able to resolve PaymentService.
+		// Let's mark OrderService and PayPalPaymentService class as @Service. This will resolve the Beans
 		var orderService = context.getBean(OrderService.class);
 
 		orderService.placeOrder();
