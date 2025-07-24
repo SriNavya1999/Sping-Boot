@@ -22,7 +22,7 @@ public class AppConfig {
     }
 
     @Bean
-    @Scope("prototype")
+    @Lazy
     public OrderService orderService(){
         if(paymentService.equals("stripe")){
             return new OrderService(stripe());
