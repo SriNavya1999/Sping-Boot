@@ -1,5 +1,6 @@
 package com.codeWithMosh.store;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,20 +13,10 @@ public class StoreApplication {
 		// ApplicationContext is the IOC for Spring-Boot-Application
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
-		// Method to get the Bean of OrderService Class.
-		/** Beans can be configured by Annotations. There are 4 types of Annotations to configure beans:
-		 * 1. @Component --> General purpose Annotation --> @Service annotation is an alias to this.
-		 * 2. @Service --> Tells that the class is a service class containing the business logic.
-		 * 3. @Repository --> Tells that the class is a repository class containing the interactions with DB.
-		 * 4. @Controller --> Tells that the class is a Controller class, Handles the Web requests.
- 		 */
-
-		// Let's mark OrderService and PayPalPaymentService class as @Service. This will resolve the Beans
-		// Not that we have not marked StripePaymentService as @Service. This will be throwing an error. We will resolve it later.
-
-		// And Bean should have only 1 constructor.
-		// If it is having multiple constructors without default one, it should mark the main constructor as @Autowired. Else it will throw an error.
-		// If it is having multiple constructors and a default one, even if none of them are marked with @Autowired, it will pick the default one
+		// If we mark both PayPalPaymentService.java and StripePaymentService.java both as @Service we will get an error saying Bean is not able to resolve. "Parameter 0 of constructor in com.codeWithMosh.store.OrderService required a single bean, but 2 were found:"
+		// To overcome this, we can use 2 different annotations
+		// @Primary -> When multiple beans are present, primary bean will be used always.
+		// In case if some class doesn't want to go with @Primary bean, we can set a @Qualifier("service_name") bean.
 		var orderService = context.getBean(OrderService.class);
 
 		orderService.placeOrder();
