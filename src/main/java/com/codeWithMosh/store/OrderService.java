@@ -13,6 +13,7 @@ public class OrderService {
 
     @Autowired
     OrderService(PaymentService paymentService){
+        System.out.println("OrderService constructor called");
         this.paymentService = paymentService;
     }
 

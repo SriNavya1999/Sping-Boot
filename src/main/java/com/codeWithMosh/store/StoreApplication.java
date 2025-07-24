@@ -13,9 +13,11 @@ public class StoreApplication {
 		// ApplicationContext is the IOC for Spring-Boot-Application
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
-		var orderService = context.getBean(OrderService.class);
-
-		orderService.placeOrder();
+//		System.out.println("Spring Boot Application Started");
+//
+//		var orderService = context.getBean(OrderService.class);
+//
+//		orderService.placeOrder();
 	}
 
 }
