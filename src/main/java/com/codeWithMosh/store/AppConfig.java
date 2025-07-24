@@ -21,7 +21,6 @@ public class AppConfig {
     }
 
     @Bean
-    @Lazy
     public OrderService orderService(){
         if(paymentService.equals("stripe")){
             return new OrderService(stripe());
