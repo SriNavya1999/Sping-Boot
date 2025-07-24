@@ -12,7 +12,7 @@ public class OrderService {
     OrderService(){}
 
     @Autowired
-    OrderService(@Qualifier("paypal") PaymentService paymentService){
+    OrderService(PaymentService paymentService){
         this.paymentService = paymentService;
     }
 

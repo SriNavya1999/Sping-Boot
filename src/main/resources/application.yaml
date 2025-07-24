@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: store
+
+server:
+  port: 8081
+
+app:
+  page-size: 10
+
+stripe:
+  url: https://api:stripe:com
+  timeout: 3000
+  enable: true
+  supported-currencies: USD,RUPEES,EUR,DIN
