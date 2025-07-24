@@ -1,18 +1,13 @@
 package com.codeWithMosh.store;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    // This class can be used to define beans and configurations for the application.
-    // For example, you can use @Bean annotations to create beans that will be managed by the Spring container.
-
-    // Example:
-    // @Bean
-    // public OrderService orderService(PaymentService paymentService) {
-    //     return new OrderService(paymentService);
-    // }
+    @Value("${payment.service:stripe}")
+    private String paymentService;
 
     @Bean
     public PaymentService stripe(){
@@ -26,7 +21,12 @@ public class AppConfig {
 
     @Bean
     public OrderService orderService(){
-        return new OrderService(stripe());
+        if(paymentService.equals("stripe")){
+            return new OrderService(stripe());
+        }
+        else {
+            return new OrderService(paypal());
+        }
     }
 
 

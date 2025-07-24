@@ -13,3 +13,12 @@ stripe:
   timeout: 3000
   enable: true
   supported-currencies: USD,RUPEES,EUR,DIN
+
+paypal:
+  url: https://api:paypal:com
+  timeout: 5000
+  enable: true
+  supported-currencies: USD,RUPEES,EUR,DIN
+
+payment:
+  service: paypal
