@@ -22,3 +22,8 @@ paypal:
 
 payment:
   service: paypal
+
+user-service:
+  email:
+    host: smtp.example.com
+    port: 587
