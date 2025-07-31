@@ -11,12 +11,6 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 
-		// ApplicationContext will not let the application exit. It will keep the application running.
-		// If you want to exit the application, you need to use ConfigurableApplicationContext, you can call context.close() method.
-		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-		var orderService = context.getBean(OrderService.class);
-		context.close();
-
 	}
 
 }
