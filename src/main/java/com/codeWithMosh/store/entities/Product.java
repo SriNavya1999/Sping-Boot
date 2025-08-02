@@ -16,6 +16,9 @@ public class Product {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "description", nullable = false, columnDefinition = "text")
+    private String description;
+
     @Column(name = "name")
     private String name;
 
