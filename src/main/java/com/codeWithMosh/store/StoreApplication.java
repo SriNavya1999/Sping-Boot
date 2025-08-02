@@ -1,6 +1,7 @@
 package com.codeWithMosh.store;
 
 import com.codeWithMosh.store.entities.Address;
+import com.codeWithMosh.store.entities.Profile;
 import com.codeWithMosh.store.entities.Tag;
 import com.codeWithMosh.store.entities.User;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,9 +21,11 @@ public class StoreApplication {
 				.password("123")
 				.build();
 
-		Tag tag = new Tag("tag1");
+		Profile profile = Profile.builder()
+				.bio("bio")
+				.build();
 
-		user.addTag(tag);
+		user.addProfile(profile);
 
 		System.out.println(user);
 	}
