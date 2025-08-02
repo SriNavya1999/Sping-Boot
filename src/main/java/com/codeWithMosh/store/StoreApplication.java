@@ -1,6 +1,7 @@
 package com.codeWithMosh.store;
 
 import com.codeWithMosh.store.entities.Address;
+import com.codeWithMosh.store.entities.Tag;
 import com.codeWithMosh.store.entities.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
@@ -19,14 +20,9 @@ public class StoreApplication {
 				.password("123")
 				.build();
 
-		var address = Address.builder()
-				.street("street")
-				.city("city")
-				.state("state")
-				.zip("zip")
-				.build();
+		Tag tag = new Tag("tag1");
 
-		user.addAddress(address);
+		user.addTag(tag);
 
 		System.out.println(user);
 	}
