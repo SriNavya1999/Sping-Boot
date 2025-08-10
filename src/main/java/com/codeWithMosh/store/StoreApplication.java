@@ -1,6 +1,7 @@
 package com.codeWithMosh.store;
 
 import com.codeWithMosh.store.entities.*;
+import com.codeWithMosh.store.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
