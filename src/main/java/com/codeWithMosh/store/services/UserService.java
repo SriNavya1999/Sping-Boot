@@ -1,6 +1,8 @@
 package com.codeWithMosh.store.services;
 
+import com.codeWithMosh.store.entities.Profile;
 import com.codeWithMosh.store.entities.User;
+import com.codeWithMosh.store.repositories.ProfileRepository;
 import com.codeWithMosh.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -14,6 +16,7 @@ public class UserService {
     private UserRepository userRepository;
     private EntityManager entityManager;
 
+    private final ProfileRepository profileRepository;
 
     /*
      * Commenting Transactional will give below op:
@@ -47,6 +50,12 @@ public class UserService {
         } else{
             System.out.println("Transient/ Detached");
         }
+    }
+
+    @Transactional
+    public void showRelatedEntities() {
+        Profile profile = profileRepository.findById(8L).orElseThrow();
+        System.out.println(profile.getUser().getName());
     }
 
 
